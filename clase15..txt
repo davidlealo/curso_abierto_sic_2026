@@ -1,0 +1,20 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from ipywidgets import interact
+
+def graficar_onda(frecuencia=1.0):
+    # Generar datos del eje X e Y
+    x = np.linspace(0, 10, 1000)
+    y = np.sin(frecuencia * x)
+
+    # Configurar el gráfico
+    plt.figure(figsize=(10, 5))
+    plt.plot(x, y, color='dodgerblue', linewidth=2)
+    plt.title(f'Onda Senoidal - Frecuencia: {frecuencia} Hz', fontsize=14)
+    plt.xlabel('Tiempo (s)', fontsize=12)
+    plt.ylabel('Amplitud', fontsize=12)
+    plt.grid(True, linestyle='--', alpha=0.7)
+    plt.show()
+
+# Crear el deslizador interactivo
+interact(graficar_onda, frecuencia=(0.1, 10.0, 0.1));
